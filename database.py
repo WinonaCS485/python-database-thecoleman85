@@ -2,17 +2,20 @@ import pymysql.cursors
 
 # Connect to the database
 connection = pymysql.connect(host='mrbartucz.com',
-                             user='CS485',
-                             password='WinonaState',
-                             db='CS485',
+                             user='an8520td',
+                             password='Toby2020!',
+                             db='an8520td_university',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
+
+student_name = input("Please enter a student name: ")
+
 
 try:
     with connection.cursor() as cursor:
         # Select all Students
         sql = "SELECT * from Students"
-        
+        sql = "SELECT * from Students where First_Name = '" + student_name + "'"
         # execute the SQL command
         cursor.execute(sql)
         
